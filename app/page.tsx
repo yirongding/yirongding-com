@@ -1,8 +1,7 @@
 import Image from "next/image";
 
-// Replace CALENDLY_URL with your actual Calendly link before going live.
+// Replace with your actual Calendly link before going live.
 const CALENDLY_URL = "https://calendly.com/yirongding";
-
 const LINKEDIN_URL = "https://www.linkedin.com/in/yirongding/";
 
 export default function Home() {
@@ -23,18 +22,35 @@ export default function Home() {
   );
 }
 
+/* ─── Nav ─────────────────────────────────────────────────────────── */
+
 function Nav() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--background)]/90 backdrop-blur-sm border-b border-[var(--border)]">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 border-b"
+      style={{
+        background: "rgba(243,244,243,0.88)",
+        backdropFilter: "blur(12px)",
+        borderColor: "var(--border)",
+      }}
+    >
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <span className="font-semibold tracking-tight text-[var(--foreground)]">
+        <span
+          className="font-display text-xl tracking-wide"
+          style={{ color: "var(--foreground)", fontWeight: 400 }}
+        >
           Yirong Ding
         </span>
         <a
           href={CALENDLY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-medium px-4 py-2 bg-[var(--accent)] text-white rounded-full hover:opacity-85 transition-opacity"
+          className="font-body text-sm font-medium px-5 py-2 rounded-full transition-opacity hover:opacity-75"
+          style={{
+            background: "var(--foreground)",
+            color: "var(--background)",
+            letterSpacing: "0.03em",
+          }}
         >
           Book a call
         </a>
@@ -43,53 +59,95 @@ function Nav() {
   );
 }
 
+/* ─── Hero ────────────────────────────────────────────────────────── */
+
 function Hero() {
   return (
-    <section className="relative pt-40 pb-28 px-6 overflow-hidden">
-      {/* Abstract background shapes */}
-      <svg
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full pointer-events-none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <defs>
-          <radialGradient id="g1" cx="70%" cy="30%" r="50%">
-            <stop offset="0%" stopColor="#bfd4ec" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#bfd4ec" stopOpacity="0" />
-          </radialGradient>
-          <radialGradient id="g2" cx="15%" cy="75%" r="40%">
-            <stop offset="0%" stopColor="#a5c4e0" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#a5c4e0" stopOpacity="0" />
-          </radialGradient>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#g1)" />
-        <rect width="100%" height="100%" fill="url(#g2)" />
-        <circle cx="82%" cy="20%" r="180" fill="none" stroke="#3b6fa0" strokeWidth="1" strokeOpacity="0.1" />
-        <circle cx="82%" cy="20%" r="280" fill="none" stroke="#3b6fa0" strokeWidth="1" strokeOpacity="0.06" />
-        <circle cx="10%" cy="85%" r="120" fill="none" stroke="#3b6fa0" strokeWidth="1" strokeOpacity="0.08" />
-      </svg>
+    <section
+      className="relative min-h-[90vh] flex items-center px-6 pt-32 pb-24 overflow-hidden"
+      style={{ background: "var(--background)" }}
+    >
+      {/* Soft accent glow — top right */}
+      <div
+        className="absolute top-0 right-0 w-[700px] h-[700px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at top right, rgba(142,164,184,0.18) 0%, transparent 65%)",
+        }}
+      />
+      {/* Soft glow — bottom left */}
+      <div
+        className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse at bottom left, rgba(142,164,184,0.1) 0%, transparent 70%)",
+        }}
+      />
 
-      <div className="relative max-w-5xl mx-auto">
-        <h1 className="text-5xl sm:text-6xl font-semibold tracking-tight leading-[1.1] text-[var(--foreground)] max-w-3xl mb-8">
-          Let AI handle the repetitive work so your team can focus on the
-          connections that matter.
+      <div className="relative max-w-5xl mx-auto w-full">
+        {/* Eyebrow */}
+        <div className="flex items-center gap-3 mb-10">
+          <div
+            className="w-8 h-px"
+            style={{ background: "var(--accent)" }}
+          />
+          <p
+            className="font-body text-xs uppercase tracking-[0.18em]"
+            style={{ color: "var(--muted)" }}
+          >
+            AI Systems for Operators
+          </p>
+        </div>
+
+        {/* Headline */}
+        <h1
+          className="font-display font-light leading-[1.05] mb-10 max-w-4xl"
+          style={{
+            fontSize: "clamp(2.8rem, 6vw, 5rem)",
+            color: "var(--foreground)",
+            letterSpacing: "-0.01em",
+          }}
+        >
+          Let AI handle the repetitive work so your team can focus on the{" "}
+          <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
+            connections that matter.
+          </em>
         </h1>
-        <p className="text-xl text-[var(--muted)] max-w-2xl leading-relaxed mb-10">
+
+        {/* Subtext */}
+        <p
+          className="font-body text-lg leading-relaxed mb-12 max-w-xl"
+          style={{ color: "var(--muted)", fontWeight: 300 }}
+        >
           I help real estate teams and growing businesses build better systems
           for lead capture, workflow organization, and manual admin.
         </p>
+
+        {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4">
           <a
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center px-6 py-3 bg-[var(--accent)] text-white rounded-full font-medium hover:opacity-85 transition-opacity"
+            className="font-body inline-flex items-center justify-center px-7 py-3.5 rounded-full font-medium transition-opacity hover:opacity-80"
+            style={{
+              background: "var(--foreground)",
+              color: "var(--background)",
+              fontSize: "0.9rem",
+              letterSpacing: "0.02em",
+            }}
           >
             Book a discovery call
           </a>
           <a
             href="#about"
-            className="inline-flex items-center justify-center px-6 py-3 border border-[var(--border)] text-[var(--foreground)] rounded-full font-medium hover:border-[var(--muted)] transition-colors"
+            className="font-body inline-flex items-center justify-center px-7 py-3.5 rounded-full font-medium transition-colors"
+            style={{
+              border: "1px solid var(--border)",
+              color: "var(--foreground)",
+              fontSize: "0.9rem",
+              letterSpacing: "0.02em",
+            }}
           >
             Learn more
           </a>
@@ -99,25 +157,49 @@ function Hero() {
   );
 }
 
+/* ─── Intro ───────────────────────────────────────────────────────── */
+
 function Intro() {
   return (
-    <section className="py-24 px-6 border-t border-[var(--border)]">
+    <section
+      className="px-6 py-28"
+      style={{
+        background: "var(--background-alt)",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
       <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-start">
-        <h2 className="text-3xl font-semibold tracking-tight leading-snug">
+        <h2
+          className="font-display font-light leading-[1.15]"
+          style={{
+            fontSize: "clamp(1.9rem, 3.5vw, 2.6rem)",
+            color: "var(--foreground)",
+            letterSpacing: "-0.01em",
+          }}
+        >
           Leads come in from everywhere.
           <br />
-          The work behind them usually doesn&rsquo;t.
+          <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
+            The work behind them usually doesn&rsquo;t.
+          </em>
         </h2>
-        <p className="text-lg text-[var(--muted)] leading-relaxed">
-          When information is scattered, intake is manual, and too much depends
-          on memory, good opportunities get harder to manage. I help businesses
-          put cleaner systems in place so less gets missed and the day-to-day
-          runs more smoothly.
-        </p>
+        <div>
+          <p
+            className="font-body text-lg leading-relaxed"
+            style={{ color: "var(--muted)", fontWeight: 300 }}
+          >
+            When information is scattered, intake is manual, and too much
+            depends on memory, good opportunities get harder to manage. I help
+            businesses put cleaner systems in place so less gets missed and the
+            day-to-day runs more smoothly.
+          </p>
+        </div>
       </div>
     </section>
   );
 }
+
+/* ─── Problems ────────────────────────────────────────────────────── */
 
 const problems = [
   "Leads coming in from too many places",
@@ -130,16 +212,42 @@ const problems = [
 
 function Problems() {
   return (
-    <section className="py-24 px-6 bg-white border-t border-[var(--border)]">
+    <section
+      className="px-6 py-28"
+      style={{
+        background: "var(--background)",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
       <div className="max-w-5xl mx-auto">
-        <p className="text-sm font-medium text-[var(--muted)] uppercase tracking-widest mb-10">
+        <p
+          className="font-body text-xs uppercase tracking-[0.18em] mb-12"
+          style={{ color: "var(--muted)" }}
+        >
           Problems I solve
         </p>
-        <div className="grid sm:grid-cols-2 gap-x-16 gap-y-5">
-          {problems.map((p) => (
-            <div key={p} className="flex items-start gap-3">
-              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0" />
-              <p className="text-lg text-[var(--foreground)]">{p}</p>
+        <div>
+          {problems.map((p, i) => (
+            <div
+              key={p}
+              className="flex items-center gap-8 py-5"
+              style={{
+                borderTop: i === 0 ? "1px solid var(--border)" : undefined,
+                borderBottom: "1px solid var(--border)",
+              }}
+            >
+              <span
+                className="font-display font-light w-8 shrink-0 text-right"
+                style={{ color: "var(--accent)", fontSize: "0.85rem" }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p
+                className="font-body text-lg"
+                style={{ color: "var(--foreground)", fontWeight: 300 }}
+              >
+                {p}
+              </p>
             </div>
           ))}
         </div>
@@ -147,6 +255,8 @@ function Problems() {
     </section>
   );
 }
+
+/* ─── Services ────────────────────────────────────────────────────── */
 
 const services = [
   {
@@ -171,26 +281,46 @@ const services = [
 
 function Services() {
   return (
-    <section id="services" className="py-24 px-6 border-t border-[var(--border)]">
+    <section
+      id="services"
+      className="px-6 py-28"
+      style={{
+        background: "var(--background-alt)",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
       <div className="max-w-5xl mx-auto">
-        <p className="text-sm font-medium text-[var(--muted)] uppercase tracking-widest mb-4">
+        <p
+          className="font-body text-xs uppercase tracking-[0.18em] mb-12"
+          style={{ color: "var(--muted)" }}
+        >
           Ways to work together
         </p>
-        <div className="grid sm:grid-cols-3 gap-6 mt-10">
+        <div className="grid sm:grid-cols-3 gap-5">
           {services.map((s) => (
             <div
               key={s.name}
-              className="flex flex-col gap-4 p-6 border border-[var(--border)] rounded-2xl"
+              className="flex flex-col gap-5 p-7 rounded-2xl"
+              style={{ background: "var(--surface)" }}
             >
-              <h3 className="font-semibold text-lg">{s.name}</h3>
-              <p className="text-[var(--muted)] text-sm leading-relaxed flex-1">
+              <h3
+                className="font-display font-medium"
+                style={{ fontSize: "1.35rem", color: "var(--foreground)" }}
+              >
+                {s.name}
+              </h3>
+              <p
+                className="font-body text-sm leading-relaxed flex-1"
+                style={{ color: "var(--muted)", fontWeight: 300 }}
+              >
                 {s.description}
               </p>
               <a
                 href={CALENDLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-[var(--accent)] hover:opacity-70 transition-opacity"
+                className="font-body text-sm font-medium transition-opacity hover:opacity-60"
+                style={{ color: "var(--accent)", letterSpacing: "0.01em" }}
               >
                 {s.cta} →
               </a>
@@ -202,53 +332,104 @@ function Services() {
   );
 }
 
+/* ─── Common Start ────────────────────────────────────────────────── */
+
 function CommonStart() {
   return (
-    <section className="py-24 px-6 bg-[var(--accent-light)] border-t border-[var(--border)]">
+    <section
+      className="px-6 py-28"
+      style={{
+        background: "var(--surface)",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
       <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-start">
-        <h2 className="text-2xl font-semibold tracking-tight leading-snug">
+        <h2
+          className="font-display font-light leading-[1.15]"
+          style={{
+            fontSize: "clamp(1.7rem, 3vw, 2.2rem)",
+            color: "var(--foreground)",
+            letterSpacing: "-0.01em",
+          }}
+        >
           A common place to start
         </h2>
-        <p className="text-lg text-[var(--muted)] leading-relaxed">
+        <p
+          className="font-body text-lg leading-relaxed"
+          style={{ color: "var(--muted)", fontWeight: 300 }}
+        >
           For many businesses, the first issue is lead capture. Inquiries come
           in from different channels, but there&rsquo;s no clean system for
           collecting them, organizing them, and routing them where they need to
-          go. Fixing that first creates a stronger foundation for everything that
-          comes next.
+          go. Fixing that first creates a stronger foundation for everything
+          that comes next.
         </p>
       </div>
     </section>
   );
 }
 
+/* ─── About ───────────────────────────────────────────────────────── */
+
 function About() {
   return (
-    <section id="about" className="py-24 px-6 border-t border-[var(--border)]">
+    <section
+      id="about"
+      className="px-6 py-28"
+      style={{
+        background: "var(--background)",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
       <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-center">
         {/* Photo */}
         <div className="relative w-full max-w-sm mx-auto sm:mx-0">
-          <div className="absolute inset-0 rounded-3xl bg-[var(--accent)] opacity-10 translate-x-3 translate-y-3" />
+          <div
+            className="absolute rounded-3xl"
+            style={{
+              inset: 0,
+              background: "var(--accent)",
+              opacity: 0.12,
+              transform: "translate(10px, 10px)",
+              borderRadius: "1.5rem",
+            }}
+          />
           <Image
             src="/yirong.jpg"
             alt="Yirong Ding"
             width={600}
             height={800}
-            className="relative rounded-3xl object-cover w-full shadow-sm"
+            className="relative w-full object-cover"
+            style={{ borderRadius: "1.5rem" }}
             priority
           />
         </div>
 
         {/* Text */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-7">
           <div>
-            <p className="text-sm font-medium text-[var(--muted)] uppercase tracking-widest mb-4">
+            <p
+              className="font-body text-xs uppercase tracking-[0.18em] mb-5"
+              style={{ color: "var(--muted)" }}
+            >
               About
             </p>
-            <h2 className="text-3xl font-semibold tracking-tight mb-6">
+            <h2
+              className="font-display font-light"
+              style={{
+                fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
+                color: "var(--foreground)",
+                letterSpacing: "-0.01em",
+                lineHeight: 1.1,
+              }}
+            >
               Hi, I&rsquo;m Yirong.
             </h2>
           </div>
-          <div className="flex flex-col gap-5 text-[var(--muted)] leading-relaxed">
+          <div
+            className="font-body flex flex-col gap-5 leading-relaxed"
+            style={{ color: "var(--muted)", fontWeight: 300, fontSize: "1rem" }}
+          >
             <p>
               My background is in marketing, content, and implementation. What
               interests me most is the operational side of the business — the
@@ -267,7 +448,12 @@ function About() {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--accent)] underline underline-offset-2 hover:opacity-70 transition-opacity"
+                className="transition-opacity hover:opacity-60"
+                style={{
+                  color: "var(--foreground)",
+                  textDecoration: "underline",
+                  textUnderlineOffset: "3px",
+                }}
               >
                 LinkedIn
               </a>
@@ -280,18 +466,43 @@ function About() {
   );
 }
 
+/* ─── CTA ─────────────────────────────────────────────────────────── */
+
 function CallToAction() {
   return (
-    <section id="contact" className="py-24 px-6 bg-[var(--accent)] text-white">
+    <section
+      id="contact"
+      className="px-6 py-32"
+      style={{ background: "var(--dark)" }}
+    >
       <div className="max-w-5xl mx-auto text-center">
-        <h2 className="text-4xl font-semibold tracking-tight mb-4">
+        <p
+          className="font-body text-xs uppercase tracking-[0.18em] mb-8"
+          style={{ color: "var(--accent)" }}
+        >
+          Let&rsquo;s talk
+        </p>
+        <h2
+          className="font-display font-light leading-[1.1] mb-10 mx-auto max-w-2xl"
+          style={{
+            fontSize: "clamp(2rem, 4vw, 3.2rem)",
+            color: "#F3F4F3",
+            letterSpacing: "-0.01em",
+          }}
+        >
           If your lead flow feels more manual than it should, let&rsquo;s talk.
         </h2>
         <a
           href={CALENDLY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center mt-8 px-8 py-4 bg-white text-[var(--accent)] rounded-full font-medium text-lg hover:opacity-90 transition-opacity"
+          className="font-body inline-flex items-center justify-center px-8 py-4 rounded-full font-medium transition-opacity hover:opacity-85"
+          style={{
+            background: "var(--background)",
+            color: "var(--foreground)",
+            fontSize: "0.95rem",
+            letterSpacing: "0.02em",
+          }}
         >
           Book a discovery call
         </a>
@@ -300,23 +511,36 @@ function CallToAction() {
   );
 }
 
+/* ─── Footer ──────────────────────────────────────────────────────── */
+
 function Footer() {
   return (
-    <footer className="py-8 px-6 border-t border-[var(--border)]">
-      <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-[var(--muted)]">
+    <footer
+      className="px-6 py-8"
+      style={{
+        background: "var(--dark)",
+        borderTop: "1px solid rgba(255,255,255,0.07)",
+      }}
+    >
+      <div
+        className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 font-body text-sm"
+        style={{ color: "rgba(243,244,243,0.35)" }}
+      >
         <span>© {new Date().getFullYear()} Yirong Ding</span>
         <div className="flex gap-6">
           <a
             href={LINKEDIN_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-[var(--foreground)] transition-colors"
+            className="transition-colors hover:text-white"
+            style={{ color: "inherit" }}
           >
             LinkedIn
           </a>
           <a
             href="mailto:yirong@yirongding.com"
-            className="hover:text-[var(--foreground)] transition-colors"
+            className="transition-colors hover:text-white"
+            style={{ color: "inherit" }}
           >
             Email
           </a>
