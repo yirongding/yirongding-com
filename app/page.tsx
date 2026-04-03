@@ -101,17 +101,17 @@ function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-display font-light leading-[1.05] mb-10 max-w-4xl"
+          className="font-display font-light leading-[1.05] mb-10"
           style={{
             fontSize: "clamp(2.8rem, 6vw, 5rem)",
             color: "var(--foreground)",
-            letterSpacing: "-0.01em",
+            letterSpacing: "-0.02em",
           }}
         >
-          Better systems.{" "}
-          <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
+          <span className="block">Better systems.</span>
+          <span className="block" style={{ color: "var(--accent)" }}>
             Less manual work.
-          </em>
+          </span>
         </h1>
 
         {/* Subtext */}
@@ -216,37 +216,57 @@ function WhatYouGet() {
         borderTop: "1px solid var(--border)",
       }}
     >
-      <div className="max-w-5xl mx-auto">
-        <p
-          className="font-body text-xs uppercase tracking-[0.18em] mb-12"
-          style={{ color: "var(--muted)" }}
-        >
-          What you get
-        </p>
+      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-center">
+        {/* List */}
         <div>
-          {outcomes.map((p, i) => (
-            <div
-              key={p}
-              className="flex items-center gap-8 py-5"
-              style={{
-                borderTop: i === 0 ? "1px solid var(--border)" : undefined,
-                borderBottom: "1px solid var(--border)",
-              }}
-            >
-              <span
-                className="font-display font-light w-8 shrink-0 text-right"
-                style={{ color: "var(--accent)", fontSize: "0.85rem" }}
+          <p
+            className="font-body text-xs uppercase tracking-[0.18em] mb-12"
+            style={{ color: "var(--muted)" }}
+          >
+            What you get
+          </p>
+          <div>
+            {outcomes.map((p, i) => (
+              <div
+                key={p}
+                className="flex items-center gap-8 py-5"
+                style={{
+                  borderTop: i === 0 ? "1px solid var(--border)" : undefined,
+                  borderBottom: "1px solid var(--border)",
+                }}
               >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <p
-                className="font-body text-lg"
-                style={{ color: "var(--foreground)", fontWeight: 300 }}
-              >
-                {p}
-              </p>
-            </div>
-          ))}
+                <span
+                  className="font-display font-light w-8 shrink-0 text-right"
+                  style={{ color: "var(--accent)", fontSize: "0.85rem" }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <p
+                  className="font-body text-lg"
+                  style={{ color: "var(--foreground)", fontWeight: 300 }}
+                >
+                  {p}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Image — swap /yirong.jpg for a relevant image when available */}
+        <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
+          <Image
+            src="/yirong.jpg"
+            alt="Working on business systems"
+            fill
+            className="object-cover object-top"
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, transparent 60%, rgba(243,244,243,0.25))",
+            }}
+          />
         </div>
       </div>
     </section>
