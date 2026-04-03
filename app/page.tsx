@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 // Replace CALENDLY_URL with your actual Calendly link before going live.
 const CALENDLY_URL = "https://calendly.com/yirongding";
 
@@ -222,41 +224,57 @@ function Services() {
 function About() {
   return (
     <section id="about" className="py-24 px-6 border-t border-[var(--border)]">
-      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-start">
-        <div>
-          <p className="text-sm font-medium text-[var(--muted)] uppercase tracking-widest mb-4">
-            About
-          </p>
-          <h2 className="text-3xl font-semibold tracking-tight">
-            Hi, I&rsquo;m Yirong.
-          </h2>
+      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-center">
+        {/* Photo */}
+        <div className="relative w-full max-w-sm mx-auto sm:mx-0">
+          <div className="absolute inset-0 rounded-3xl bg-[var(--accent)] opacity-10 translate-x-3 translate-y-3" />
+          <Image
+            src="/yirong.jpg"
+            alt="Yirong Ding"
+            width={600}
+            height={800}
+            className="relative rounded-3xl object-cover w-full shadow-sm"
+            priority
+          />
         </div>
-        <div className="flex flex-col gap-5 text-[var(--muted)] leading-relaxed">
-          <p>
-            I build AI systems for small businesses and operators — practical,
-            working automations that solve real problems, not proof-of-concept
-            demos.
-          </p>
-          <p>
-            I started this work because I kept watching smart, busy people lose
-            hours every week to tasks that AI could handle. The tools exist. The
-            hard part is knowing which ones to use, how to connect them, and how
-            to make them actually fit the way a real business operates.
-          </p>
-          <p>
-            I&rsquo;m building this practice in public — sharing what I&rsquo;m
-            learning and testing along the way. If you want to follow along,
-            I&rsquo;m on{" "}
-            <a
-              href={LINKEDIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--accent)] underline underline-offset-2 hover:opacity-70 transition-opacity"
-            >
-              LinkedIn
-            </a>
-            .
-          </p>
+
+        {/* Text */}
+        <div className="flex flex-col gap-6">
+          <div>
+            <p className="text-sm font-medium text-[var(--muted)] uppercase tracking-widest mb-4">
+              About
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight mb-6">
+              Hi, I&rsquo;m Yirong.
+            </h2>
+          </div>
+          <div className="flex flex-col gap-5 text-[var(--muted)] leading-relaxed">
+            <p>
+              I build AI systems for small businesses and operators — practical,
+              working automations that solve real problems, not proof-of-concept
+              demos.
+            </p>
+            <p>
+              I started this work because I kept watching smart, busy people lose
+              hours every week to tasks that AI could handle. The tools exist. The
+              hard part is knowing which ones to use, how to connect them, and how
+              to make them actually fit the way a real business operates.
+            </p>
+            <p>
+              I&rsquo;m building this practice in public — sharing what I&rsquo;m
+              learning and testing along the way. If you want to follow along,
+              I&rsquo;m on{" "}
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--accent)] underline underline-offset-2 hover:opacity-70 transition-opacity"
+              >
+                LinkedIn
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </div>
     </section>
