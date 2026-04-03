@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ContactForm } from "./components/ContactForm";
 
 // Replace with your actual Calendly link before going live.
 const CALENDLY_URL = "https://calendly.com/yirongding";
@@ -101,7 +102,7 @@ function Hero() {
 
         {/* Headline */}
         <h1
-          className="font-display font-light leading-[1.05] mb-10"
+          className="font-display font-light leading-[1.05] mb-6"
           style={{
             fontSize: "clamp(2.8rem, 6vw, 5rem)",
             color: "var(--foreground)",
@@ -114,13 +115,22 @@ function Hero() {
           </span>
         </h1>
 
+        {/* Clear descriptor — answers "what is this?" in one line */}
+        <p
+          className="font-body font-medium mb-8"
+          style={{ color: "var(--foreground)", fontSize: "1.05rem", letterSpacing: "0.01em" }}
+        >
+          Done-for-you business setup, systems &amp; AI support — for small service businesses.
+        </p>
+
         {/* Subtext */}
         <p
           className="font-body text-lg leading-relaxed mb-12 max-w-xl"
           style={{ color: "var(--muted)", fontWeight: 300 }}
         >
-          I help small service businesses get set up properly, streamline their
-          workflows, and use AI in ways that save time and support growth.
+          I help you get the right foundations in place, clean up your workflows,
+          and use AI in ways that actually save time — so your business runs more
+          smoothly and you can focus on your clients.
         </p>
 
         {/* CTAs */}
@@ -278,20 +288,23 @@ function WhatYouGet() {
 const services = [
   {
     name: "Foundation setup",
+    forWho: "Just starting out, or building on a shaky base",
     description:
-      "For businesses that need the right pieces in place from the start. This can include brand direction, website setup, CRM setup, lead capture, email setup, and the core systems that support a more professional, organized business.",
+      "Get the right pieces in place from the start — brand direction, website, CRM, lead capture, email setup, and the core systems that support a more professional, organized business.",
     cta: "Start here",
   },
   {
     name: "Systems setup",
+    forWho: "Already running, but workflows feel messy or inconsistent",
     description:
-      "For businesses that are already running but need smoother workflows behind the scenes. This includes lead routing, CRM organization, workflow design, tool connections, and practical AI support that helps reduce manual work and improve consistency.",
+      "Clean up what's behind the scenes — lead routing, CRM organization, workflow design, tool connections, and practical AI support that reduces manual work and improves consistency.",
     cta: "Book a call",
   },
   {
     name: "Ongoing support",
+    forWho: "Want continued help as your business grows",
     description:
-      "For businesses that want continued help refining and expanding their systems over time. This includes ongoing optimization, workflow updates, troubleshooting, and additional automation or AI support as the business evolves.",
+      "Refine and expand your systems over time — ongoing optimization, workflow updates, troubleshooting, and additional automation or AI support as the business evolves.",
     cta: "Book a call",
   },
 ];
@@ -317,15 +330,27 @@ function Services() {
           {services.map((s) => (
             <div
               key={s.name}
-              className="flex flex-col gap-5 p-7 rounded-2xl"
+              className="flex flex-col gap-4 p-7 rounded-2xl"
               style={{ background: "var(--surface)" }}
             >
-              <h3
-                className="font-display font-medium"
-                style={{ fontSize: "1.35rem", color: "var(--foreground)" }}
-              >
-                {s.name}
-              </h3>
+              <div>
+                <h3
+                  className="font-display font-medium mb-2"
+                  style={{ fontSize: "1.35rem", color: "var(--foreground)" }}
+                >
+                  {s.name}
+                </h3>
+                <p
+                  className="font-body text-xs font-medium uppercase tracking-[0.1em]"
+                  style={{ color: "var(--accent)" }}
+                >
+                  {s.forWho}
+                </p>
+              </div>
+              <div
+                className="w-full h-px"
+                style={{ background: "var(--border)" }}
+              />
               <p
                 className="font-body text-sm leading-relaxed flex-1"
                 style={{ color: "var(--muted)", fontWeight: 300 }}
@@ -374,13 +399,36 @@ function WhyDifferent() {
             I start with how your business actually runs.
           </em>
         </h2>
-        <p
-          className="font-body text-lg leading-relaxed"
-          style={{ color: "var(--muted)", fontWeight: 300 }}
-        >
-          That means the goal isn&rsquo;t more software. It&rsquo;s a business
-          that feels more organized, more efficient, and easier to grow.
-        </p>
+        <div className="flex flex-col gap-6">
+          <p
+            className="font-body text-lg leading-relaxed"
+            style={{ color: "var(--muted)", fontWeight: 300 }}
+          >
+            That means the goal isn&rsquo;t more software. It&rsquo;s a
+            business that feels more organized, more efficient, and easier to
+            grow.
+          </p>
+          <div
+            className="font-body text-sm leading-relaxed p-5 rounded-xl"
+            style={{
+              borderLeft: "2px solid var(--accent)",
+              background: "var(--background)",
+              color: "var(--muted)",
+              fontWeight: 300,
+            }}
+          >
+            <span
+              className="font-medium block mb-1"
+              style={{ color: "var(--foreground)", fontSize: "0.8rem", letterSpacing: "0.08em", textTransform: "uppercase" }}
+            >
+              For example
+            </span>
+            Instead of manually copying new inquiries from your inbox into a
+            spreadsheet or CRM, an automated system can capture every lead,
+            tag it by source, and trigger a follow-up sequence — without you
+            doing anything.
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -483,46 +531,60 @@ function About() {
   );
 }
 
-/* ─── CTA ─────────────────────────────────────────────────────────── */
+/* ─── Contact ─────────────────────────────────────────────────────── */
 
 function CallToAction() {
   return (
     <section
       id="contact"
-      className="px-6 py-32"
+      className="px-6 py-24"
       style={{ background: "var(--dark)" }}
     >
-      <div className="max-w-5xl mx-auto text-center">
-        <p
-          className="font-body text-xs uppercase tracking-[0.18em] mb-8"
-          style={{ color: "var(--accent)" }}
-        >
-          Let&rsquo;s talk
-        </p>
-        <h2
-          className="font-display font-light leading-[1.1] mb-10 mx-auto max-w-2xl"
-          style={{
-            fontSize: "clamp(2rem, 4vw, 3.2rem)",
-            color: "#F3F4F3",
-            letterSpacing: "-0.01em",
-          }}
-        >
-          If your business feels more manual than it should, let&rsquo;s talk.
-        </h2>
-        <a
-          href={CALENDLY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-body inline-flex items-center justify-center px-8 py-4 rounded-full font-medium transition-opacity hover:opacity-85"
-          style={{
-            background: "var(--background)",
-            color: "var(--foreground)",
-            fontSize: "0.95rem",
-            letterSpacing: "0.02em",
-          }}
-        >
-          Book a discovery call
-        </a>
+      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-start">
+        {/* Left: heading + Calendly option */}
+        <div className="flex flex-col gap-8 sm:pt-2">
+          <p
+            className="font-body text-xs uppercase tracking-[0.18em]"
+            style={{ color: "var(--accent)" }}
+          >
+            Let&rsquo;s talk
+          </p>
+          <h2
+            className="font-display font-light leading-[1.1]"
+            style={{
+              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+              color: "#F3F4F3",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            If your business feels more manual than it should, let&rsquo;s
+            talk.
+          </h2>
+          <p
+            className="font-body leading-relaxed"
+            style={{ color: "rgba(243,244,243,0.5)", fontWeight: 300, fontSize: "0.95rem" }}
+          >
+            Send a message and I&rsquo;ll get back to you within a couple of
+            days. Or, if you&rsquo;d rather talk directly —
+          </p>
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body inline-flex items-center justify-center self-start px-6 py-3 rounded-full font-medium transition-opacity hover:opacity-80"
+            style={{
+              border: "1px solid rgba(255,255,255,0.2)",
+              color: "#F3F4F3",
+              fontSize: "0.9rem",
+              letterSpacing: "0.02em",
+            }}
+          >
+            Book a discovery call
+          </a>
+        </div>
+
+        {/* Right: contact form */}
+        <ContactForm />
       </div>
     </section>
   );
