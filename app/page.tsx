@@ -11,8 +11,10 @@ export default function Home() {
       <Nav />
       <main className="flex-1">
         <Hero />
+        <Intro />
         <Problems />
         <Services />
+        <CommonStart />
         <About />
         <CallToAction />
       </main>
@@ -62,22 +64,19 @@ function Hero() {
         </defs>
         <rect width="100%" height="100%" fill="url(#g1)" />
         <rect width="100%" height="100%" fill="url(#g2)" />
-        {/* Decorative circles */}
         <circle cx="82%" cy="20%" r="180" fill="none" stroke="#3b6fa0" strokeWidth="1" strokeOpacity="0.1" />
         <circle cx="82%" cy="20%" r="280" fill="none" stroke="#3b6fa0" strokeWidth="1" strokeOpacity="0.06" />
         <circle cx="10%" cy="85%" r="120" fill="none" stroke="#3b6fa0" strokeWidth="1" strokeOpacity="0.08" />
       </svg>
 
       <div className="relative max-w-5xl mx-auto">
-        <p className="text-sm font-medium text-[var(--accent)] uppercase tracking-widest mb-6">
-          AI Systems for Operators
-        </p>
         <h1 className="text-5xl sm:text-6xl font-semibold tracking-tight leading-[1.1] text-[var(--foreground)] max-w-3xl mb-8">
-          Your business is leaking time and leads.
+          Let AI handle the repetitive work so your team can focus on the
+          connections that matter.
         </h1>
         <p className="text-xl text-[var(--muted)] max-w-2xl leading-relaxed mb-10">
-          I build AI workflows that handle the follow-up, the busywork, and the
-          handoffs — so you can focus on what actually grows your business.
+          I help real estate teams and growing businesses build better systems
+          for lead capture, workflow organization, and manual admin.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <a
@@ -100,51 +99,47 @@ function Hero() {
   );
 }
 
+function Intro() {
+  return (
+    <section className="py-24 px-6 border-t border-[var(--border)]">
+      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-start">
+        <h2 className="text-3xl font-semibold tracking-tight leading-snug">
+          Leads come in from everywhere.
+          <br />
+          The work behind them usually doesn&rsquo;t.
+        </h2>
+        <p className="text-lg text-[var(--muted)] leading-relaxed">
+          When information is scattered, intake is manual, and too much depends
+          on memory, good opportunities get harder to manage. I help businesses
+          put cleaner systems in place so less gets missed and the day-to-day
+          runs more smoothly.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 const problems = [
-  {
-    title: "Lead follow-up slips",
-    description:
-      "New leads go cold while you're working with current clients. By the time you circle back, they've already moved on.",
-  },
-  {
-    title: "Repetitive tasks eat your day",
-    description:
-      "Updating the CRM, sending the same messages, copy-pasting between tools — hours gone to work that should take minutes.",
-  },
-  {
-    title: "Your tools don't talk to each other",
-    description:
-      "Leads come in from five places, nothing syncs automatically, and things fall through the cracks no matter how organized you try to be.",
-  },
-  {
-    title: "AI feels out of reach",
-    description:
-      "You know it can help. Everyone says so. But knowing where to start — and what's actually useful for your business — is a different problem.",
-  },
+  "Leads coming in from too many places",
+  "Manual intake and repetitive admin",
+  "Missed or delayed inquiries",
+  "Scattered information across tools",
+  "CRM processes that feel messy or inconsistent",
+  "Workflows that rely too heavily on one person",
 ];
 
 function Problems() {
   return (
-    <section className="py-24 px-6 border-t border-[var(--border)]">
+    <section className="py-24 px-6 bg-white border-t border-[var(--border)]">
       <div className="max-w-5xl mx-auto">
-        <p className="text-sm font-medium text-[var(--muted)] uppercase tracking-widest mb-4">
-          Who I work with
+        <p className="text-sm font-medium text-[var(--muted)] uppercase tracking-widest mb-10">
+          Problems I solve
         </p>
-        <h2 className="text-3xl font-semibold tracking-tight mb-4">
-          Real estate agents and teams, mostly.
-        </h2>
-        <p className="text-lg text-[var(--muted)] max-w-2xl mb-16">
-          Also founders and operators in other industries who are growing faster
-          than their current systems can handle. If any of this sounds familiar,
-          we should talk.
-        </p>
-        <div className="grid sm:grid-cols-2 gap-x-16 gap-y-10">
+        <div className="grid sm:grid-cols-2 gap-x-16 gap-y-5">
           {problems.map((p) => (
-            <div key={p.title} className="flex flex-col gap-2">
-              <h3 className="font-semibold text-lg">{p.title}</h3>
-              <p className="text-[var(--muted)] leading-relaxed">
-                {p.description}
-              </p>
+            <div key={p} className="flex items-start gap-3">
+              <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0" />
+              <p className="text-lg text-[var(--foreground)]">{p}</p>
             </div>
           ))}
         </div>
@@ -155,53 +150,39 @@ function Problems() {
 
 const services = [
   {
-    name: "Workflow Audit",
-    tagline: "Find where time and leads are slipping.",
+    name: "Workflow audit",
     description:
-      "A focused 1–2 hour session where we map your current workflows, identify the biggest bottlenecks, and figure out exactly where AI can have the most impact. You leave with a clear picture of what to fix first.",
+      "A focused review of your current process, tools, and bottlenecks so we can see where things are breaking down and what's worth fixing first.",
     cta: "Start here",
   },
   {
-    name: "Custom AI System Build",
-    tagline: "Get the system built for you.",
+    name: "One-time system setup",
     description:
-      "I design and build automations and AI agents tailored to your specific workflows — from lead intake and follow-up to client communication and reporting. Built to work with the tools you already use.",
+      "A done-for-you setup for a specific workflow, like lead capture, CRM routing, intake organization, or another process that's creating friction.",
     cta: "Book a call",
   },
   {
-    name: "Ongoing Support",
-    tagline: "Keep it working as your business grows.",
+    name: "Ongoing support",
     description:
-      "Your workflows will evolve. I stay on to help you adapt, expand, and get more out of the systems we build together — without you needing to learn how any of it works under the hood.",
+      "For businesses that want continued help improving systems, simplifying workflows, and building on what's already working.",
     cta: "Book a call",
   },
 ];
 
 function Services() {
   return (
-    <section
-      id="services"
-      className="py-24 px-6 bg-white border-t border-[var(--border)]"
-    >
+    <section id="services" className="py-24 px-6 border-t border-[var(--border)]">
       <div className="max-w-5xl mx-auto">
         <p className="text-sm font-medium text-[var(--muted)] uppercase tracking-widest mb-4">
-          How I can help
+          Ways to work together
         </p>
-        <h2 className="text-3xl font-semibold tracking-tight mb-16">
-          Three ways to work together.
-        </h2>
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-3 gap-6 mt-10">
           {services.map((s) => (
             <div
               key={s.name}
               className="flex flex-col gap-4 p-6 border border-[var(--border)] rounded-2xl"
             >
-              <div>
-                <h3 className="font-semibold text-lg mb-1">{s.name}</h3>
-                <p className="text-sm text-[var(--muted)] font-medium">
-                  {s.tagline}
-                </p>
-              </div>
+              <h3 className="font-semibold text-lg">{s.name}</h3>
               <p className="text-[var(--muted)] text-sm leading-relaxed flex-1">
                 {s.description}
               </p>
@@ -216,6 +197,25 @@ function Services() {
             </div>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function CommonStart() {
+  return (
+    <section className="py-24 px-6 bg-[var(--accent-light)] border-t border-[var(--border)]">
+      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-start">
+        <h2 className="text-2xl font-semibold tracking-tight leading-snug">
+          A common place to start
+        </h2>
+        <p className="text-lg text-[var(--muted)] leading-relaxed">
+          For many businesses, the first issue is lead capture. Inquiries come
+          in from different channels, but there&rsquo;s no clean system for
+          collecting them, organizing them, and routing them where they need to
+          go. Fixing that first creates a stronger foundation for everything that
+          comes next.
+        </p>
       </div>
     </section>
   );
@@ -250,20 +250,19 @@ function About() {
           </div>
           <div className="flex flex-col gap-5 text-[var(--muted)] leading-relaxed">
             <p>
-              I build AI systems for small businesses and operators — practical,
-              working automations that solve real problems, not proof-of-concept
-              demos.
+              My background is in marketing, content, and implementation. What
+              interests me most is the operational side of the business — the
+              places where time gets lost, processes get messy, and simple
+              systems can make a real difference.
             </p>
             <p>
-              I started this work because I kept watching smart, busy people lose
-              hours every week to tasks that AI could handle. The tools exist. The
-              hard part is knowing which ones to use, how to connect them, and how
-              to make them actually fit the way a real business operates.
+              I use AI where it&rsquo;s useful, but the goal is never more
+              tools. It&rsquo;s better workflow, less friction, and more space
+              for the work that actually needs a human.
             </p>
             <p>
-              I&rsquo;m building this practice in public — sharing what I&rsquo;m
-              learning and testing along the way. If you want to follow along,
-              I&rsquo;m on{" "}
+              I&rsquo;m building this practice in public — sharing what
+              I&rsquo;m learning and testing along the way. Follow along on{" "}
               <a
                 href={LINKEDIN_URL}
                 target="_blank"
@@ -283,23 +282,16 @@ function About() {
 
 function CallToAction() {
   return (
-    <section
-      id="contact"
-      className="py-24 px-6 bg-[var(--accent)] text-white"
-    >
+    <section id="contact" className="py-24 px-6 bg-[var(--accent)] text-white">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-4xl font-semibold tracking-tight mb-4">
-          Not sure where to start?
+          If your lead flow feels more manual than it should, let&rsquo;s talk.
         </h2>
-        <p className="text-lg opacity-70 max-w-xl mx-auto mb-10">
-          Book a free 30-minute call. No pitch, no pressure — just a
-          conversation about your workflows and whether AI can genuinely help.
-        </p>
         <a
           href={CALENDLY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-8 py-4 bg-white text-[var(--accent)] rounded-full font-medium text-lg hover:opacity-90 transition-opacity"
+          className="inline-flex items-center justify-center mt-8 px-8 py-4 bg-white text-[var(--accent)] rounded-full font-medium text-lg hover:opacity-90 transition-opacity"
         >
           Book a discovery call
         </a>
