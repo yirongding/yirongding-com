@@ -87,7 +87,7 @@ function Hero() {
         alt=""
         fill
         className="object-cover object-center pointer-events-none select-none"
-        style={{ opacity: 0.45, mixBlendMode: "multiply" }}
+        style={{ opacity: 0.35, mixBlendMode: "multiply" }}
         priority
       />
 
@@ -153,7 +153,7 @@ function Hero() {
               letterSpacing: "0.02em",
             }}
           >
-            Book a discovery call
+            Book a call
           </a>
           <a
             href="#services"
