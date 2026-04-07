@@ -275,20 +275,14 @@ function WhatYouGet() {
           </div>
         </div>
 
-        {/* Image — swap /yirong.jpg for a relevant image when available */}
         <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
-          <Image
-            src="/yirong.jpg"
-            alt="Working on business systems"
-            fill
-            className="object-cover object-top"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to bottom, transparent 60%, rgba(243,244,243,0.25))",
-            }}
+          <video
+            src="/what-you-get.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-top"
           />
         </div>
       </div>
