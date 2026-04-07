@@ -81,21 +81,14 @@ function Hero() {
       className="relative min-h-[90vh] flex items-center px-6 pt-32 pb-24 overflow-hidden"
       style={{ background: "var(--background)" }}
     >
-      {/* Soft accent glow — top right */}
-      <div
-        className="absolute top-0 right-0 w-[700px] h-[700px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at top right, rgba(142,164,184,0.18) 0%, transparent 65%)",
-        }}
-      />
-      {/* Soft glow — bottom left */}
-      <div
-        className="absolute bottom-0 left-0 w-[400px] h-[400px] pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at bottom left, rgba(142,164,184,0.1) 0%, transparent 70%)",
-        }}
+      {/* Hero background texture */}
+      <Image
+        src="/hero-bg.png"
+        alt=""
+        fill
+        className="object-cover object-center pointer-events-none select-none"
+        style={{ opacity: 0.45, mixBlendMode: "multiply" }}
+        priority
       />
 
       <div className="relative max-w-5xl mx-auto w-full">
