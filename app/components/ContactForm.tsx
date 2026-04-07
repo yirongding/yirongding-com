@@ -4,7 +4,7 @@
 // 1. Go to https://formspree.io and create a free account
 // 2. Create a new form and copy the form ID
 // 3. Replace REPLACE_WITH_YOUR_FORMSPREE_ID below with your form ID
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xojprerq";
 
 import { useState } from "react";
 
@@ -145,17 +145,17 @@ export function ContactForm() {
           letterSpacing: "0.02em",
           cursor: status === "sending" ? "wait" : "pointer",
           border: "none",
-          alignSelf: "flex-start",
+          alignSelf: "center",
         }}
       >
-        {status === "sending" ? "Sending…" : "Send message"}
+        {status === "sending" ? "Sending…" : "Send inquiry"}
       </button>
       {status === "error" && (
         <p
           className="font-body text-sm"
           style={{ color: "rgba(243,244,243,0.5)" }}
         >
-          Something went wrong. Try emailing directly at yirong@yirongding.com
+          Something went wrong. Try emailing directly at dingyirongdyr@gmail.com
         </p>
       )}
     </form>

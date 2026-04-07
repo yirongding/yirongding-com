@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ContactForm } from "./components/ContactForm";
 
 // Replace with your actual Calendly link before going live.
-const CALENDLY_URL = "https://calendly.com/yirongding";
+const CALENDLY_URL = "https://calendly.com/yirongding/30min";
 const LINKEDIN_URL = "https://www.linkedin.com/in/yirongding/";
 
 export default function Home() {
@@ -15,6 +15,7 @@ export default function Home() {
         <WhatYouGet />
         <Services />
         <WhyDifferent />
+        <CaseStudies />
         <About />
         <CallToAction />
       </main>
@@ -42,6 +43,18 @@ function Nav() {
         >
           Yirong Ding
         </span>
+        <div className="hidden sm:flex items-center gap-8">
+          {[["Services", "#services"], ["About", "#about"], ["Contact", "#contact"]].map(([label, href]) => (
+            <a
+              key={href}
+              href={href}
+              className="font-body text-sm transition-opacity hover:opacity-60"
+              style={{ color: "var(--muted)" }}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
         <a
           href={CALENDLY_URL}
           target="_blank"
@@ -150,7 +163,7 @@ function Hero() {
             Book a discovery call
           </a>
           <a
-            href="#about"
+            href="#services"
             className="font-body inline-flex items-center justify-center px-7 py-3.5 rounded-full font-medium transition-colors"
             style={{
               border: "1px solid var(--border)",
@@ -210,11 +223,11 @@ function Intro() {
 /* ─── Problems ────────────────────────────────────────────────────── */
 
 const outcomes = [
-  "A stronger business foundation",
-  "Cleaner lead capture and CRM workflows",
-  "Less repetitive admin",
-  "Better organization behind the scenes",
-  "AI support that's actually useful",
+  "A business foundation that holds together — website, CRM, and email working as one",
+  "Every lead captured, tagged, and followed up without manual effort",
+  "Fewer steps between an inquiry and your first response",
+  "Tools and workflows that connect, so nothing slips through the cracks",
+  "Routine admin handled automatically — so you stay focused on client work",
 ];
 
 function WhatYouGet() {
@@ -287,25 +300,22 @@ function WhatYouGet() {
 
 const services = [
   {
-    name: "Foundation setup",
-    forWho: "Just starting out, or building on a shaky base",
+    name: "Foundation Setup",
+    forWho: "For businesses building from the ground up or starting fresh",
     description:
-      "Get the right pieces in place from the start — brand direction, website, CRM, lead capture, email setup, and the core systems that support a more professional, organized business.",
-    cta: "Start here",
+      "Set up the essentials properly from the beginning — brand direction, website structure, CRM, lead capture, email setup, and the core systems that support a more organized business.",
   },
   {
-    name: "Systems setup",
-    forWho: "Already running, but workflows feel messy or inconsistent",
+    name: "Workflow Design",
+    forWho: "For businesses with messy processes or operational friction",
     description:
-      "Clean up what's behind the scenes — lead routing, CRM organization, workflow design, tool connections, and practical AI support that reduces manual work and improves consistency.",
-    cta: "Book a call",
+      "Improve the way work moves behind the scenes — from lead handling and CRM organization to tool connections, admin workflows, and practical AI support that reduces manual work.",
   },
   {
-    name: "Ongoing support",
-    forWho: "Want continued help as your business grows",
+    name: "Ongoing Support",
+    forWho: "For businesses that need continued operational help as they grow",
     description:
-      "Refine and expand your systems over time — ongoing optimization, workflow updates, troubleshooting, and additional automation or AI support as the business evolves.",
-    cta: "Book a call",
+      "Refine and strengthen your systems over time with ongoing updates, workflow improvements, troubleshooting, and thoughtful support across the moving parts of the business.",
   },
 ];
 
@@ -313,61 +323,113 @@ function Services() {
   return (
     <section
       id="services"
-      className="px-6 py-28"
+      className="relative px-6 py-40 overflow-hidden"
       style={{
-        background: "var(--background-alt)",
-        borderTop: "1px solid var(--border)",
+        background: "#16191C",
+        borderTop: "1px solid rgba(142,164,184,0.12)",
       }}
     >
-      <div className="max-w-5xl mx-auto">
-        <p
-          className="font-body text-xs uppercase tracking-[0.18em] mb-12"
-          style={{ color: "var(--muted)" }}
-        >
-          Ways to work together
-        </p>
-        <div className="grid sm:grid-cols-3 gap-5">
-          {services.map((s) => (
+      {/* Subtle warm accent glow — top left */}
+      <div
+        className="absolute top-0 left-0 w-[600px] h-[500px] pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at top left, rgba(142,164,184,0.07) 0%, transparent 65%)",
+        }}
+      />
+
+      <div className="relative max-w-5xl mx-auto">
+        {/* Section heading */}
+        <div className="mb-24">
+          <p
+            className="font-body text-xs uppercase tracking-[0.22em] mb-6"
+            style={{ color: "#8EA4B8" }}
+          >
+            Ways to work together
+          </p>
+          <h2
+            className="font-display font-light"
+            style={{
+              fontSize: "clamp(2.2rem, 4.5vw, 3.2rem)",
+              color: "#F7F4F0",
+              letterSpacing: "-0.025em",
+              lineHeight: 1.1,
+            }}
+          >
+            Support for different{" "}
+            <em style={{ fontStyle: "italic", color: "#8EA4B8" }}>
+              stages of growth
+            </em>
+          </h2>
+        </div>
+
+        <div className="grid sm:grid-cols-3">
+          {services.map((s, i) => (
             <div
               key={s.name}
-              className="flex flex-col gap-4 p-7 rounded-2xl"
-              style={{ background: "var(--surface)" }}
+              className="flex flex-col pt-10 pb-12 sm:py-0 sm:px-10"
+              style={i > 0 ? { borderLeft: "1px solid rgba(142,164,184,0.15)" } : undefined}
             >
-              <div>
-                <h3
-                  className="font-display font-medium mb-2"
-                  style={{ fontSize: "1.35rem", color: "var(--foreground)" }}
-                >
-                  {s.name}
-                </h3>
-                <p
-                  className="font-body text-xs font-medium uppercase tracking-[0.1em]"
-                  style={{ color: "var(--accent)" }}
-                >
-                  {s.forWho}
-                </p>
-              </div>
-              <div
-                className="w-full h-px"
-                style={{ background: "var(--border)" }}
-              />
+              {/* Service name — warm white, strong */}
+              <h3
+                className="font-display font-medium leading-tight mb-5"
+                style={{
+                  fontSize: "clamp(1.45rem, 2.1vw, 1.8rem)",
+                  color: "#F7F4F0",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {s.name}
+              </h3>
+
+              {/* For who — accent-tinted pill with real fill */}
               <p
-                className="font-body text-sm leading-relaxed flex-1"
-                style={{ color: "var(--muted)", fontWeight: 300 }}
+                className="font-body self-start mb-9 px-4 py-2 rounded-2xl"
+                style={{
+                  fontSize: "0.75rem",
+                  color: "#A8C0D0",
+                  background: "rgba(142,164,184,0.11)",
+                  border: "1px solid rgba(142,164,184,0.22)",
+                  fontWeight: 400,
+                  lineHeight: 1.6,
+                  letterSpacing: "0.01em",
+                }}
+              >
+                {s.forWho}
+              </p>
+
+              {/* Description */}
+              <p
+                className="font-body"
+                style={{
+                  color: "rgba(247,244,240,0.52)",
+                  fontWeight: 300,
+                  fontSize: "0.9rem",
+                  lineHeight: 1.85,
+                }}
               >
                 {s.description}
               </p>
-              <a
-                href={CALENDLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-body text-sm font-medium transition-opacity hover:opacity-60"
-                style={{ color: "var(--accent)", letterSpacing: "0.01em" }}
-              >
-                {s.cta} →
-              </a>
             </div>
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="flex justify-center mt-24">
+          <a
+            href={CALENDLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-body inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium transition-opacity hover:opacity-70"
+            style={{
+              border: "1px solid rgba(142,164,184,0.45)",
+              color: "#A8C0D0",
+              fontSize: "0.875rem",
+              letterSpacing: "0.03em",
+              background: "rgba(142,164,184,0.07)",
+            }}
+          >
+            Book a discovery call
+          </a>
         </div>
       </div>
     </section>
@@ -399,35 +461,86 @@ function WhyDifferent() {
             I start with how your business actually runs.
           </em>
         </h2>
-        <div className="flex flex-col gap-6">
-          <p
-            className="font-body text-lg leading-relaxed"
-            style={{ color: "var(--muted)", fontWeight: 300 }}
-          >
-            That means the goal isn&rsquo;t more software. It&rsquo;s a
-            business that feels more organized, more efficient, and easier to
-            grow.
-          </p>
-          <div
-            className="font-body text-sm leading-relaxed p-5 rounded-xl"
-            style={{
-              borderLeft: "2px solid var(--accent)",
-              background: "var(--background)",
-              color: "var(--muted)",
-              fontWeight: 300,
-            }}
-          >
-            <span
-              className="font-medium block mb-1"
-              style={{ color: "var(--foreground)", fontSize: "0.8rem", letterSpacing: "0.08em", textTransform: "uppercase" }}
+        <p
+          className="font-body text-lg leading-relaxed"
+          style={{ color: "var(--muted)", fontWeight: 300 }}
+        >
+          That means the goal isn&rsquo;t more software. It&rsquo;s a
+          business that feels more organized, more efficient, and easier to
+          grow.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ─── Case Studies ────────────────────────────────────────────────── */
+
+const caseStudies = [
+  {
+    title: "Lead Follow-Up",
+    description:
+      "Built a workflow to capture inquiries, organize key details, and support faster follow-up so fewer leads go cold.",
+  },
+  {
+    title: "Inbox Overload",
+    description:
+      "Created a system to sort incoming messages, flag priorities, and make next steps easier to manage.",
+  },
+  {
+    title: "Scattered Operations",
+    description:
+      "Connected forms, messages, and internal systems so information flows more smoothly and the team spends less time chasing details.",
+  },
+];
+
+function CaseStudies() {
+  return (
+    <section
+      className="px-6 py-28"
+      style={{
+        background: "var(--background-alt)",
+        borderTop: "1px solid var(--border)",
+      }}
+    >
+      <div className="max-w-5xl mx-auto">
+        <p
+          className="font-body text-xs uppercase tracking-[0.18em] mb-12"
+          style={{ color: "var(--muted)" }}
+        >
+          How this can look in practice
+        </p>
+        <div className="grid sm:grid-cols-3 gap-5">
+          {caseStudies.map((c, i) => (
+            <div
+              key={c.title}
+              className="flex flex-col gap-4 p-7 rounded-2xl"
+              style={{ background: "var(--surface)" }}
             >
-              For example
-            </span>
-            Instead of manually copying new inquiries from your inbox into a
-            spreadsheet or CRM, an automated system can capture every lead,
-            tag it by source, and trigger a follow-up sequence — without you
-            doing anything.
-          </div>
+              <span
+                className="font-display font-light"
+                style={{ color: "var(--accent)", fontSize: "0.85rem" }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3
+                className="font-display font-medium"
+                style={{ fontSize: "1.2rem", color: "var(--foreground)" }}
+              >
+                {c.title}
+              </h3>
+              <div
+                className="w-full h-px"
+                style={{ background: "var(--border)" }}
+              />
+              <p
+                className="font-body text-sm leading-relaxed"
+                style={{ color: "var(--muted)", fontWeight: 300 }}
+              >
+                {c.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -496,33 +609,21 @@ function About() {
             style={{ color: "var(--muted)", fontWeight: 300, fontSize: "1rem" }}
           >
             <p>
-              My background is in marketing, content, and implementation. What
-              interests me most is the operational side of the business — the
-              places where time gets lost, processes get messy, and simple
+              My background is in marketing, content, and implementation, with
+              a growing focus on the operational side of the business — the
+              places where time gets lost, processes get messy, and better
               systems can make a real difference.
             </p>
             <p>
-              I use AI where it&rsquo;s useful, but the goal is never more
-              tools. It&rsquo;s better workflow, less friction, and more space
-              for the work that actually needs a human.
+              I&rsquo;m especially interested in helping businesses improve the
+              way work flows behind the scenes: reducing friction, creating
+              clearer processes, and using AI where it&rsquo;s genuinely
+              useful.
             </p>
             <p>
-              I&rsquo;m building this practice in public — sharing what
-              I&rsquo;m learning and testing along the way. Follow along on{" "}
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-opacity hover:opacity-60"
-                style={{
-                  color: "var(--foreground)",
-                  textDecoration: "underline",
-                  textUnderlineOffset: "3px",
-                }}
-              >
-                LinkedIn
-              </a>
-              .
+              The goal is never more tools for the sake of it. It&rsquo;s
+              better workflow, smoother operations, and more space for the work
+              that actually needs a human.
             </p>
           </div>
         </div>
@@ -537,54 +638,80 @@ function CallToAction() {
   return (
     <section
       id="contact"
-      className="px-6 py-24"
-      style={{ background: "var(--dark)" }}
+      className="px-6 py-32"
+      style={{
+        background: "var(--dark)",
+        borderTop: "1px solid rgba(255,255,255,0.07)",
+      }}
     >
-      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-start">
-        {/* Left: heading + Calendly option */}
-        <div className="flex flex-col gap-8 sm:pt-2">
-          <p
+      <div className="max-w-2xl mx-auto flex flex-col items-center text-center">
+        {/* Preheader */}
+        <p
+          className="font-body text-xs uppercase tracking-[0.22em] mb-6"
+          style={{ color: "rgba(142,164,184,0.75)" }}
+        >
+          Let&rsquo;s Talk
+        </p>
+
+        {/* Headline */}
+        <h2
+          className="font-display font-light mb-5"
+          style={{
+            fontSize: "clamp(2rem, 4vw, 3rem)",
+            color: "#F7F4F0",
+            letterSpacing: "-0.025em",
+            lineHeight: 1.1,
+          }}
+        >
+          If your business feels more manual than it should
+        </h2>
+
+        {/* Supporting line */}
+        <p
+          className="font-body mb-10 max-w-md"
+          style={{
+            color: "rgba(243,244,240,0.52)",
+            fontWeight: 300,
+            fontSize: "1rem",
+            lineHeight: 1.7,
+          }}
+        >
+          Tell me what&rsquo;s feeling manual, messy, or disconnected, and
+          I&rsquo;ll be in touch.
+        </p>
+
+        {/* Primary CTA */}
+        <a
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-body inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium transition-opacity hover:opacity-70 mb-14"
+          style={{
+            background: "#F7F4F0",
+            color: "#16191C",
+            fontSize: "0.9rem",
+            letterSpacing: "0.02em",
+          }}
+        >
+          Book a call
+        </a>
+
+        {/* Divider */}
+        <div className="flex items-center gap-5 w-full mb-14">
+          <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
+          <span
             className="font-body text-xs uppercase tracking-[0.18em]"
-            style={{ color: "var(--accent)" }}
+            style={{ color: "rgba(243,244,243,0.25)" }}
           >
-            Let&rsquo;s talk
-          </p>
-          <h2
-            className="font-display font-light leading-[1.1]"
-            style={{
-              fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
-              color: "#F3F4F3",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            If your business feels more manual than it should, let&rsquo;s
-            talk.
-          </h2>
-          <p
-            className="font-body leading-relaxed"
-            style={{ color: "rgba(243,244,243,0.5)", fontWeight: 300, fontSize: "0.95rem" }}
-          >
-            Send a message and I&rsquo;ll get back to you within a couple of
-            days. Or, if you&rsquo;d rather talk directly —
-          </p>
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body inline-flex items-center justify-center self-start px-6 py-3 rounded-full font-medium transition-opacity hover:opacity-80"
-            style={{
-              border: "1px solid rgba(255,255,255,0.2)",
-              color: "#F3F4F3",
-              fontSize: "0.9rem",
-              letterSpacing: "0.02em",
-            }}
-          >
-            Book a discovery call
-          </a>
+            or send a note
+          </span>
+          <div className="flex-1 h-px" style={{ background: "rgba(255,255,255,0.08)" }} />
         </div>
 
-        {/* Right: contact form */}
-        <ContactForm />
+        {/* Form — left-aligned inside centered container */}
+        <div className="w-full text-left">
+          <ContactForm />
+        </div>
       </div>
     </section>
   );
@@ -617,7 +744,7 @@ function Footer() {
             LinkedIn
           </a>
           <a
-            href="mailto:yirong@yirongding.com"
+            href="mailto:dingyirongdyr@gmail.com"
             className="transition-colors hover:text-white"
             style={{ color: "inherit" }}
           >
