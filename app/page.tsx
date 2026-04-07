@@ -276,13 +276,11 @@ function WhatYouGet() {
         </div>
 
         <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
-          <video
-            src="/what-you-get.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover object-top"
+          <Image
+            src="/what-you-get.jpg"
+            alt="Working on business systems"
+            fill
+            className="object-cover object-top"
           />
         </div>
       </div>
