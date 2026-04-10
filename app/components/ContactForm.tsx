@@ -37,9 +37,9 @@ export function ContactForm() {
   const inputStyle: React.CSSProperties = {
     width: "100%",
     padding: "0.75rem 1rem",
-    borderRadius: "0.75rem",
-    border: "1px solid rgba(255,255,255,0.12)",
-    background: "rgba(255,255,255,0.06)",
+    borderRadius: "6px",
+    border: "1px solid rgba(255,255,255,0.1)",
+    background: "rgba(255,255,255,0.05)",
     color: "#F3F4F3",
     fontFamily: "var(--font-body), system-ui, sans-serif",
     fontSize: "0.9rem",
@@ -49,8 +49,8 @@ export function ContactForm() {
   if (status === "sent") {
     return (
       <div
-        className="flex items-center justify-center rounded-2xl p-10"
-        style={{ border: "1px solid rgba(255,255,255,0.1)" }}
+        className="flex items-center justify-center rounded-xl p-10"
+        style={{ border: "1px solid rgba(255,255,255,0.08)" }}
       >
         <p
           className="font-body text-center"
@@ -136,11 +136,12 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === "sending"}
-        className="font-body font-medium rounded-full transition-opacity hover:opacity-80 disabled:opacity-50"
+        className="font-body font-medium transition-opacity hover:opacity-80 disabled:opacity-50"
         style={{
           padding: "0.85rem 2rem",
           background: "var(--background)",
           color: "var(--foreground)",
+          borderRadius: "8px",
           fontSize: "0.9rem",
           letterSpacing: "0.02em",
           cursor: status === "sending" ? "wait" : "pointer",

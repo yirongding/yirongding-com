@@ -11,17 +11,20 @@ const manrope = Manrope({
 const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
-  title: "Yirong Ding — AI Systems for Operators",
+  title: "AI-Powered Business Setup & Systems | Yirong Ding",
   description:
-    "I help real estate teams and growing businesses build better systems for lead capture, workflow organization, and manual admin.",
+    "I help you get the right foundations in place, clean up your workflows, and use AI in ways that actually save time — so your business runs more smoothly and you can focus on your clients.",
+  icons: {
+    icon: "/favicon.svg",
+  },
   openGraph: {
-    title: "Yirong Ding — AI Systems for Operators",
+    title: "AI-Powered Business Setup & Systems | Yirong Ding",
     description:
-      "I help real estate teams and growing businesses build better systems for lead capture, workflow organization, and manual admin.",
+      "I help you get the right foundations in place, clean up your workflows, and use AI in ways that actually save time — so your business runs more smoothly and you can focus on your clients.",
     url: "https://yirongding.com",
     siteName: "Yirong Ding",
   },

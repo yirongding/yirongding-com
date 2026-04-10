@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background:     #F3F4F3;
-  --background-alt: #E9EBEC;
-  --surface:        #DEE2E6;
-  --foreground:     #181A1D;
-  --muted:          #646B73;
+  /* Warm neutrals — yellow-brown undertones (Notion-inspired) */
+  --background:     #F5F4F2;
+  --background-alt: #ECEAE7;
+  --surface:        #E2DED9;
+  --foreground:     #1A1917;
+  --muted:          #6B6760;
   --accent:         #8EA4B8;
-  --border:         #CDD3D8;
+  /* Whisper border — ultra-thin, felt not seen (Notion) */
+  --border:         rgba(0, 0, 0, 0.09);
   --dark:           #181A1D;
 }
 
@@ -30,6 +32,17 @@
   font-family: var(--font-body), system-ui, sans-serif;
 }
 
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -38,6 +51,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), system-ui, sans-serif;
+  font-feature-settings: "cv01", "ss03";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -1,0 +1,252 @@
+YIRONGDING.COM — COPY FOR TRANSLATION
+======================================
+Instructions: Replace each [EN] value with the translated text.
+Keep all labels (NAV.links.services, etc.) exactly as-is — they are used as keys in the code.
+Do not translate proper nouns: Yirong, Yirong Ding, LinkedIn, CRM, AI.
+
+
+──────────────────────────────────────
+NAV
+──────────────────────────────────────
+
+NAV.links.services
+[EN] Services
+
+NAV.links.about
+[EN] About
+
+NAV.links.contact
+[EN] Contact
+
+NAV.cta
+[EN] Book a call
+
+
+──────────────────────────────────────
+HERO
+──────────────────────────────────────
+
+HERO.eyebrow
+[EN] AI-powered business setup & systems
+
+HERO.headline.line1
+[EN] Better systems.
+
+HERO.headline.line2
+[EN] Less manual work.
+
+HERO.descriptor
+[EN] Done-for-you business setup, systems & AI support — for small service businesses.
+
+HERO.subtext
+[EN] I help you get the right foundations in place, clean up your workflows, and use AI in ways that actually save time — so your business runs more smoothly and you can focus on your clients.
+
+HERO.cta.primary
+[EN] Book a call
+
+HERO.cta.secondary
+[EN] Learn more
+
+
+──────────────────────────────────────
+INTRO
+──────────────────────────────────────
+
+INTRO.heading
+[EN] Good businesses often outgrow their systems before they realize it.
+
+INTRO.body
+[EN] Leads come in from different places. Admin piles up. Important steps stay manual. I help clean that up with better setup, better systems, and practical AI support.
+
+
+──────────────────────────────────────
+WHAT YOU GET
+──────────────────────────────────────
+
+WHATYOUGET.label
+[EN] What you get
+
+WHATYOUGET.items.1
+[EN] A business foundation that holds together — website, CRM, and email working as one
+
+WHATYOUGET.items.2
+[EN] Every lead captured, tagged, and followed up without manual effort
+
+WHATYOUGET.items.3
+[EN] Fewer steps between an inquiry and your first response
+
+WHATYOUGET.items.4
+[EN] Tools and workflows that connect, so nothing slips through the cracks
+
+WHATYOUGET.items.5
+[EN] Routine admin handled automatically — so you stay focused on client work
+
+
+──────────────────────────────────────
+SERVICES
+──────────────────────────────────────
+
+SERVICES.label
+[EN] Ways to work together
+
+SERVICES.heading
+[EN] Support for different stages of growth
+
+SERVICES.cta
+[EN] Book a discovery call
+
+SERVICES.1.name
+[EN] Foundation Setup
+
+SERVICES.1.forWho
+[EN] For businesses building from the ground up or starting fresh
+
+SERVICES.1.description
+[EN] Set up the essentials properly from the beginning — brand direction, website structure, CRM, lead capture, email setup, and the core systems that support a more organized business.
+
+SERVICES.2.name
+[EN] Workflow Design
+
+SERVICES.2.forWho
+[EN] For businesses with messy processes or operational friction
+
+SERVICES.2.description
+[EN] Improve the way work moves behind the scenes — from lead handling and CRM organization to tool connections, admin workflows, and practical AI support that reduces manual work.
+
+SERVICES.3.name
+[EN] Ongoing Support
+
+SERVICES.3.forWho
+[EN] For businesses that need continued operational help as they grow
+
+SERVICES.3.description
+[EN] Refine and strengthen your systems over time with ongoing updates, workflow improvements, troubleshooting, and thoughtful support across the moving parts of the business.
+
+
+──────────────────────────────────────
+WHY DIFFERENT
+──────────────────────────────────────
+
+WHYDIFFERENT.heading.line1
+[EN] Most people start with AI tools.
+
+WHYDIFFERENT.heading.line2
+[EN] I start with how your business actually runs.
+
+WHYDIFFERENT.body
+[EN] That means the goal isn't more software. It's a business that feels more organized, more efficient, and easier to grow.
+
+
+──────────────────────────────────────
+CASE STUDIES
+──────────────────────────────────────
+
+CASESTUDIES.label
+[EN] How this can look in practice
+
+CASESTUDIES.1.title
+[EN] Lead Follow-Up
+
+CASESTUDIES.1.description
+[EN] Built a workflow to capture inquiries, organize key details, and support faster follow-up so fewer leads go cold.
+
+CASESTUDIES.2.title
+[EN] Inbox Overload
+
+CASESTUDIES.2.description
+[EN] Created a system to sort incoming messages, flag priorities, and make next steps easier to manage.
+
+CASESTUDIES.3.title
+[EN] Scattered Operations
+
+CASESTUDIES.3.description
+[EN] Connected forms, messages, and internal systems so information flows more smoothly and the team spends less time chasing details.
+
+
+──────────────────────────────────────
+ABOUT
+──────────────────────────────────────
+
+ABOUT.label
+[EN] About
+
+ABOUT.heading
+[EN] Hi, I'm Yirong.
+
+ABOUT.body.1
+[EN] My background is in marketing, content, and implementation, with a growing focus on the operational side of the business — the places where time gets lost, processes get messy, and better systems can make a real difference.
+
+ABOUT.body.2
+[EN] I'm especially interested in helping businesses improve the way work flows behind the scenes: reducing friction, creating clearer processes, and using AI where it's genuinely useful.
+
+ABOUT.body.3
+[EN] The goal is never more tools for the sake of it. It's better workflow, smoother operations, and more space for the work that actually needs a human.
+
+
+──────────────────────────────────────
+CONTACT / CTA
+──────────────────────────────────────
+
+CTA.label
+[EN] Let's Talk
+
+CTA.heading
+[EN] If your business feels more manual than it should
+
+CTA.subtext
+[EN] Tell me what's feeling repetitive, messy, or disconnected, and I'll be in touch.
+
+CTA.button
+[EN] Book a call
+
+CTA.divider
+[EN] or send a note
+
+
+──────────────────────────────────────
+CONTACT FORM
+──────────────────────────────────────
+
+FORM.name.label
+[EN] Name
+
+FORM.name.placeholder
+[EN] Your name
+
+FORM.email.label
+[EN] Email
+
+FORM.email.placeholder
+[EN] you@example.com
+
+FORM.business.label
+[EN] Type of business
+
+FORM.business.placeholder
+[EN] e.g. real estate, photography, consulting…
+
+FORM.message.label
+[EN] What are you working on?
+
+FORM.message.placeholder
+[EN] Tell me a bit about your business and what's feeling manual or messy right now.
+
+FORM.submit
+[EN] Send inquiry
+
+FORM.success
+[EN] Thanks — I'll get back to you within a couple of days.
+
+FORM.error
+[EN] Something went wrong. Try emailing directly at dingyirongdyr@gmail.com
+
+
+──────────────────────────────────────
+FOOTER
+──────────────────────────────────────
+
+FOOTER.linkedin
+[EN] LinkedIn
+
+FOOTER.email
+[EN] Email

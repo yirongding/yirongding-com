@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { ContactForm } from "./components/ContactForm";
+import { AnimateIn } from "./components/AnimateIn";
+import { Nav } from "./components/Nav";
 
 // Replace with your actual Calendly link before going live.
 const CALENDLY_URL = "https://calendly.com/yirongding/30min";
@@ -24,54 +26,6 @@ export default function Home() {
   );
 }
 
-/* ─── Nav ─────────────────────────────────────────────────────────── */
-
-function Nav() {
-  return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 border-b"
-      style={{
-        background: "rgba(243,244,243,0.88)",
-        backdropFilter: "blur(12px)",
-        borderColor: "var(--border)",
-      }}
-    >
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <span
-          className="font-display text-xl tracking-wide"
-          style={{ color: "var(--foreground)", fontWeight: 400 }}
-        >
-          Yirong Ding
-        </span>
-        <div className="hidden sm:flex items-center gap-8">
-          {[["Services", "#services"], ["About", "#about"], ["Contact", "#contact"]].map(([label, href]) => (
-            <a
-              key={href}
-              href={href}
-              className="font-body text-sm transition-opacity hover:opacity-60"
-              style={{ color: "var(--muted)" }}
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-        <a
-          href={CALENDLY_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-body text-sm font-medium px-5 py-2 rounded-full transition-opacity hover:opacity-75"
-          style={{
-            background: "var(--foreground)",
-            color: "var(--background)",
-            letterSpacing: "0.03em",
-          }}
-        >
-          Book a call
-        </a>
-      </div>
-    </header>
-  );
-}
 
 /* ─── Hero ────────────────────────────────────────────────────────── */
 
@@ -93,7 +47,10 @@ function Hero() {
 
       <div className="relative max-w-5xl mx-auto w-full">
         {/* Eyebrow */}
-        <div className="flex items-center gap-3 mb-10">
+        <div
+          className="flex items-center gap-3 mb-10"
+          style={{ animation: "fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) both" }}
+        >
           <div
             className="w-8 h-px"
             style={{ background: "var(--accent)" }}
@@ -112,7 +69,8 @@ function Hero() {
           style={{
             fontSize: "clamp(2.8rem, 6vw, 5rem)",
             color: "var(--foreground)",
-            letterSpacing: "-0.02em",
+            letterSpacing: "-0.032em",
+            animation: "fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) 0.12s both",
           }}
         >
           <span className="block">Better systems.</span>
@@ -124,7 +82,7 @@ function Hero() {
         {/* Clear descriptor — answers "what is this?" in one line */}
         <p
           className="font-body font-medium mb-8"
-          style={{ color: "var(--foreground)", fontSize: "1.05rem", letterSpacing: "0.01em" }}
+          style={{ color: "var(--foreground)", fontSize: "1.05rem", letterSpacing: "0.01em", animation: "fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) 0.24s both" }}
         >
           Done-for-you business setup, systems &amp; AI support — for small service businesses.
         </p>
@@ -132,7 +90,7 @@ function Hero() {
         {/* Subtext */}
         <p
           className="font-body text-lg leading-relaxed mb-12 max-w-xl"
-          style={{ color: "var(--muted)", fontWeight: 300 }}
+          style={{ color: "var(--muted)", fontWeight: 300, animation: "fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) 0.34s both" }}
         >
           I help you get the right foundations in place, clean up your workflows,
           and use AI in ways that actually save time — so your business runs more
@@ -140,27 +98,30 @@ function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-4" style={{ animation: "fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) 0.44s both" }}>
           <a
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body inline-flex items-center justify-center px-7 py-3.5 rounded-full font-medium transition-opacity hover:opacity-80"
+            className="font-body inline-flex items-center justify-center px-7 py-3.5 font-medium transition-opacity hover:opacity-80"
             style={{
               background: "var(--foreground)",
               color: "var(--background)",
+              borderRadius: "8px",
               fontSize: "0.9rem",
               letterSpacing: "0.02em",
+              boxShadow: "rgba(50,50,93,0.14) 0px 8px 24px -8px, rgba(0,0,0,0.08) 0px 4px 12px -4px",
             }}
           >
             Book a call
           </a>
           <a
             href="#services"
-            className="font-body inline-flex items-center justify-center px-7 py-3.5 rounded-full font-medium transition-colors"
+            className="font-body inline-flex items-center justify-center px-7 py-3.5 font-medium transition-opacity hover:opacity-70"
             style={{
-              border: "1px solid var(--border)",
+              border: "1px solid rgba(0,0,0,0.15)",
               color: "var(--foreground)",
+              borderRadius: "8px",
               fontSize: "0.9rem",
               letterSpacing: "0.02em",
             }}
@@ -185,20 +146,22 @@ function Intro() {
       }}
     >
       <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-start">
-        <h2
-          className="font-display font-light leading-[1.15]"
-          style={{
-            fontSize: "clamp(1.9rem, 3.5vw, 2.6rem)",
-            color: "var(--foreground)",
-            letterSpacing: "-0.01em",
-          }}
-        >
-          Good businesses often outgrow their systems{" "}
-          <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
-            before they realize it.
-          </em>
-        </h2>
-        <div>
+        <AnimateIn className="self-start">
+          <h2
+            className="font-display font-light leading-[1.15]"
+            style={{
+              fontSize: "clamp(1.9rem, 3.5vw, 2.6rem)",
+              color: "var(--foreground)",
+              letterSpacing: "-0.022em",
+            }}
+          >
+            Good businesses often outgrow their systems{" "}
+            <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
+              before they realize it.
+            </em>
+          </h2>
+        </AnimateIn>
+        <AnimateIn delay={100} className="self-start">
           <p
             className="font-body text-lg leading-relaxed"
             style={{ color: "var(--muted)", fontWeight: 300 }}
@@ -207,7 +170,7 @@ function Intro() {
             stay manual. I help clean that up with better setup, better systems,
             and practical AI support.
           </p>
-        </div>
+        </AnimateIn>
       </div>
     </section>
   );
@@ -232,49 +195,62 @@ function WhatYouGet() {
         borderTop: "1px solid var(--border)",
       }}
     >
-      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-center">
+      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-12 sm:gap-16 items-start">
         {/* List */}
         <div>
-          <p
-            className="font-body text-xs uppercase tracking-[0.18em] mb-12"
-            style={{ color: "var(--muted)" }}
-          >
-            What you get
-          </p>
+          <AnimateIn>
+            <p
+              className="font-body text-xs uppercase tracking-[0.18em] mb-12"
+              style={{ color: "var(--muted)" }}
+            >
+              What you get
+            </p>
+          </AnimateIn>
           <div>
             {outcomes.map((p, i) => (
-              <div
-                key={p}
-                className="flex items-center gap-8 py-5"
-                style={{
-                  borderTop: i === 0 ? "1px solid var(--border)" : undefined,
-                  borderBottom: "1px solid var(--border)",
-                }}
-              >
-                <span
-                  className="font-display font-light w-8 shrink-0 text-right"
-                  style={{ color: "var(--accent)", fontSize: "0.85rem" }}
+              <AnimateIn key={p} delay={i * 70}>
+                <div
+                  className="flex items-center gap-8 py-5"
+                  style={{
+                    borderTop: i === 0 ? "1px solid var(--border)" : undefined,
+                    borderBottom: "1px solid var(--border)",
+                  }}
                 >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p
-                  className="font-body text-lg"
-                  style={{ color: "var(--foreground)", fontWeight: 300 }}
-                >
-                  {p}
-                </p>
-              </div>
+                  <span
+                    className="font-display font-light w-8 shrink-0 text-right"
+                    style={{ color: "var(--accent)", fontSize: "0.85rem" }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p
+                    className="font-body text-lg"
+                    style={{ color: "var(--foreground)", fontWeight: 300 }}
+                  >
+                    {p}
+                  </p>
+                </div>
+              </AnimateIn>
             ))}
           </div>
         </div>
 
-        <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
-          <Image
-            src="/what-you-get.jpg"
-            alt="Working on business systems"
-            fill
-            className="object-cover object-top"
-          />
+        <div>
+          <AnimateIn delay={200}>
+            <div
+              className="relative w-full rounded-2xl overflow-hidden"
+              style={{
+                height: "clamp(380px, 52vh, 560px)",
+                boxShadow: "rgba(50,50,93,0.18) 0px 32px 64px -20px, rgba(0,0,0,0.12) 0px 16px 36px -16px",
+              }}
+            >
+              <Image
+                src="/what-you-get.png"
+                alt="Working on business systems"
+                fill
+                className="object-cover object-top"
+              />
+            </div>
+          </AnimateIn>
         </div>
       </div>
     </section>
@@ -324,7 +300,7 @@ function Services() {
 
       <div className="relative max-w-5xl mx-auto">
         {/* Section heading */}
-        <div className="mb-24">
+        <AnimateIn className="mb-24">
           <p
             className="font-body text-xs uppercase tracking-[0.22em] mb-6"
             style={{ color: "#8EA4B8" }}
@@ -336,24 +312,28 @@ function Services() {
             style={{
               fontSize: "clamp(2.2rem, 4.5vw, 3.2rem)",
               color: "#F7F4F0",
-              letterSpacing: "-0.025em",
-              lineHeight: 1.1,
+              letterSpacing: "-0.034em",
+              lineHeight: 1.08,
             }}
           >
-            Support for different{" "}
-            <em style={{ fontStyle: "italic", color: "#8EA4B8" }}>
+            Support for different
+            <br className="sm:hidden" />
+            {" "}<em style={{ fontStyle: "italic", color: "#8EA4B8" }}>
               stages of growth
             </em>
           </h2>
-        </div>
+        </AnimateIn>
 
-        <div className="grid sm:grid-cols-3">
+        <div className="grid sm:grid-cols-3 gap-4">
           {services.map((s, i) => (
-            <div
-              key={s.name}
-              className="flex flex-col pt-10 pb-12 sm:py-0 sm:px-10"
-              style={i > 0 ? { borderLeft: "1px solid rgba(142,164,184,0.15)" } : undefined}
-            >
+            <AnimateIn key={s.name} delay={i * 90}>
+              <div
+                className="flex flex-col p-9 rounded-xl h-full"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
               {/* Service name — warm white, strong */}
               <h3
                 className="font-display font-medium leading-tight mb-5"
@@ -394,7 +374,8 @@ function Services() {
               >
                 {s.description}
               </p>
-            </div>
+              </div>
+            </AnimateIn>
           ))}
         </div>
 
@@ -404,13 +385,14 @@ function Services() {
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-body inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium transition-opacity hover:opacity-70"
+            className="font-body inline-flex items-center justify-center px-8 py-3.5 font-medium transition-opacity hover:opacity-70"
             style={{
-              border: "1px solid rgba(142,164,184,0.45)",
+              border: "1px solid rgba(142,164,184,0.35)",
               color: "#A8C0D0",
+              borderRadius: "8px",
               fontSize: "0.875rem",
-              letterSpacing: "0.03em",
-              background: "rgba(142,164,184,0.07)",
+              letterSpacing: "0.02em",
+              background: "rgba(142,164,184,0.06)",
             }}
           >
             Book a discovery call
@@ -433,27 +415,31 @@ function WhyDifferent() {
       }}
     >
       <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-start">
-        <h2
-          className="font-display font-light leading-[1.15]"
-          style={{
-            fontSize: "clamp(1.7rem, 3vw, 2.2rem)",
-            color: "var(--foreground)",
-            letterSpacing: "-0.01em",
-          }}
-        >
-          Most people start with AI tools.{" "}
-          <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
-            I start with how your business actually runs.
-          </em>
-        </h2>
-        <p
-          className="font-body text-lg leading-relaxed"
-          style={{ color: "var(--muted)", fontWeight: 300 }}
-        >
-          That means the goal isn&rsquo;t more software. It&rsquo;s a
-          business that feels more organized, more efficient, and easier to
-          grow.
-        </p>
+        <AnimateIn className="self-start">
+          <h2
+            className="font-display font-light leading-[1.15]"
+            style={{
+              fontSize: "clamp(1.7rem, 3vw, 2.2rem)",
+              color: "var(--foreground)",
+              letterSpacing: "-0.022em",
+            }}
+          >
+            <span className="block">Most people start with AI tools.</span>
+            <em style={{ fontStyle: "italic", color: "var(--accent)" }}>
+              I start with how your business actually runs.
+            </em>
+          </h2>
+        </AnimateIn>
+        <AnimateIn delay={100} className="self-start">
+          <p
+            className="font-body text-lg leading-relaxed"
+            style={{ color: "var(--muted)", fontWeight: 300 }}
+          >
+            That means the goal isn&rsquo;t more software. It&rsquo;s a
+            business that feels more organized, more efficient, and easier to
+            grow.
+          </p>
+        </AnimateIn>
       </div>
     </section>
   );
@@ -497,11 +483,15 @@ function CaseStudies() {
         </p>
         <div className="grid sm:grid-cols-3 gap-5">
           {caseStudies.map((c, i) => (
-            <div
-              key={c.title}
-              className="flex flex-col gap-4 p-7 rounded-2xl"
-              style={{ background: "var(--surface)" }}
-            >
+            <AnimateIn key={c.title} delay={i * 80}>
+              <div
+                className="flex flex-col gap-4 p-7 rounded-xl h-full"
+                style={{
+                  background: "var(--background)",
+                  border: "1px solid rgba(0,0,0,0.07)",
+                  boxShadow: "rgba(50,50,93,0.07) 0px 12px 32px -12px, rgba(0,0,0,0.05) 0px 6px 16px -6px",
+                }}
+              >
               <span
                 className="font-display font-light"
                 style={{ color: "var(--accent)", fontSize: "0.85rem" }}
@@ -524,7 +514,8 @@ function CaseStudies() {
               >
                 {c.description}
               </p>
-            </div>
+              </div>
+            </AnimateIn>
           ))}
         </div>
       </div>
@@ -546,6 +537,7 @@ function About() {
     >
       <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-16 items-center">
         {/* Photo */}
+        <AnimateIn>
         <div className="relative w-full max-w-sm mx-auto sm:mx-0">
           <div
             className="absolute rounded-3xl"
@@ -563,12 +555,17 @@ function About() {
             width={600}
             height={800}
             className="relative w-full object-cover"
-            style={{ borderRadius: "1.5rem" }}
+            style={{
+              borderRadius: "1.5rem",
+              boxShadow: "rgba(50,50,93,0.14) 0px 20px 48px -16px, rgba(0,0,0,0.1) 0px 10px 24px -10px",
+            }}
             priority
           />
         </div>
+        </AnimateIn>
 
         {/* Text */}
+        <AnimateIn delay={120}>
         <div className="flex flex-col gap-7">
           <div>
             <p
@@ -582,7 +579,7 @@ function About() {
               style={{
                 fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
                 color: "var(--foreground)",
-                letterSpacing: "-0.01em",
+                letterSpacing: "-0.025em",
                 lineHeight: 1.1,
               }}
             >
@@ -612,6 +609,7 @@ function About() {
             </p>
           </div>
         </div>
+        </AnimateIn>
       </div>
     </section>
   );
@@ -629,7 +627,7 @@ function CallToAction() {
         borderTop: "1px solid rgba(255,255,255,0.07)",
       }}
     >
-      <div className="max-w-2xl mx-auto flex flex-col items-center text-center">
+      <AnimateIn className="max-w-2xl mx-auto flex flex-col items-center text-center">
         {/* Preheader */}
         <p
           className="font-body text-xs uppercase tracking-[0.22em] mb-6"
@@ -644,8 +642,8 @@ function CallToAction() {
           style={{
             fontSize: "clamp(2rem, 4vw, 3rem)",
             color: "#F7F4F0",
-            letterSpacing: "-0.025em",
-            lineHeight: 1.1,
+            letterSpacing: "-0.034em",
+            lineHeight: 1.08,
           }}
         >
           If your business feels more manual than it should
@@ -661,7 +659,7 @@ function CallToAction() {
             lineHeight: 1.7,
           }}
         >
-          Tell me what&rsquo;s feeling manual, messy, or disconnected, and
+          Tell me what&rsquo;s feeling repetitive, messy, or disconnected, and
           I&rsquo;ll be in touch.
         </p>
 
@@ -670,12 +668,14 @@ function CallToAction() {
           href={CALENDLY_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-body inline-flex items-center justify-center px-8 py-3.5 rounded-full font-medium transition-opacity hover:opacity-70 mb-14"
+          className="font-body inline-flex items-center justify-center px-8 py-3.5 font-medium transition-opacity hover:opacity-70 mb-14"
           style={{
             background: "#F7F4F0",
             color: "#16191C",
+            borderRadius: "8px",
             fontSize: "0.9rem",
             letterSpacing: "0.02em",
+            boxShadow: "rgba(0,0,0,0.2) 0px 4px 16px -4px",
           }}
         >
           Book a call
@@ -697,7 +697,7 @@ function CallToAction() {
         <div className="w-full text-left">
           <ContactForm />
         </div>
-      </div>
+      </AnimateIn>
     </section>
   );
 }
