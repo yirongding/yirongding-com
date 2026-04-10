@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -41,6 +42,18 @@ export default function RootLayout({
       className={`${manrope.variable} ${inter.variable} h-full`}
     >
       <body className="min-h-full flex flex-col antialiased">{children}</body>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-CXFDTCGNVW"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-CXFDTCGNVW');
+        `}
+      </Script>
     </html>
   );
 }
