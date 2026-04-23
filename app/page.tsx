@@ -59,7 +59,7 @@ function Hero() {
             className="font-body text-xs uppercase tracking-[0.18em]"
             style={{ color: "var(--muted)" }}
           >
-            AI-powered business setup &amp; systems
+            AI-powered business systems
           </p>
         </div>
 
@@ -84,7 +84,7 @@ function Hero() {
           className="font-body font-medium mb-8"
           style={{ color: "var(--foreground)", fontSize: "1.05rem", letterSpacing: "0.01em", animation: "fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) 0.24s both" }}
         >
-          Done-for-you business setup, systems &amp; AI support — for small service businesses.
+          AI systems, workflow automation, and marketing operations, intentionally designed for small businesses.
         </p>
 
         {/* Subtext */}
