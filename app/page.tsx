@@ -2,10 +2,10 @@ import Image from "next/image";
 import { ContactForm } from "./components/ContactForm";
 import { AnimateIn } from "./components/AnimateIn";
 import { Nav } from "./components/Nav";
+import { Footer } from "./components/Footer";
 
 // Replace with your actual Calendly link before going live.
 const CALENDLY_URL = "https://calendly.com/yirongding/30min";
-const LINKEDIN_URL = "https://www.linkedin.com/in/yirongding/";
 
 export default function Home() {
   return (
@@ -84,7 +84,7 @@ function Hero() {
           className="font-body font-medium mb-8"
           style={{ color: "var(--foreground)", fontSize: "1.05rem", letterSpacing: "0.01em", animation: "fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) 0.24s both" }}
         >
-          AI systems, workflow automation, and marketing operations, intentionally designed for small businesses.
+          workflow automation, marketing operations, intentionally designed for small businesses
         </p>
 
         {/* Subtext */}
@@ -702,41 +702,3 @@ function CallToAction() {
   );
 }
 
-/* ─── Footer ──────────────────────────────────────────────────────── */
-
-function Footer() {
-  return (
-    <footer
-      className="px-6 py-8"
-      style={{
-        background: "var(--dark)",
-        borderTop: "1px solid rgba(255,255,255,0.07)",
-      }}
-    >
-      <div
-        className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 font-body text-sm"
-        style={{ color: "rgba(243,244,243,0.35)" }}
-      >
-        <span>© {new Date().getFullYear()} Yirong Ding</span>
-        <div className="flex gap-6">
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-colors hover:text-white"
-            style={{ color: "inherit" }}
-          >
-            LinkedIn
-          </a>
-          <a
-            href="mailto:dingyirongdyr@gmail.com"
-            className="transition-colors hover:text-white"
-            style={{ color: "inherit" }}
-          >
-            Email
-          </a>
-        </div>
-      </div>
-    </footer>
-  );
-}

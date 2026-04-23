@@ -16,14 +16,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI-Powered Business Setup & Systems | Yirong Ding",
+  title: "AI-Powered Business Systems | Yirong Ding",
   description:
     "I help you get the right foundations in place, clean up your workflows, and use AI in ways that actually save time — so your business runs more smoothly and you can focus on your clients.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "AI-Powered Business Setup & Systems | Yirong Ding",
+    title: "AI-Powered Business Systems | Yirong Ding",
     description:
       "I help you get the right foundations in place, clean up your workflows, and use AI in ways that actually save time — so your business runs more smoothly and you can focus on your clients.",
     url: "https://yirongding.com",

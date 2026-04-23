@@ -4,9 +4,10 @@ import { useState } from "react";
 
 const CALENDLY_URL = "https://calendly.com/yirongding/30min";
 const NAV_LINKS = [
-  ["Services", "#services"],
-  ["About", "#about"],
-  ["Contact", "#contact"],
+  ["Services", "/#services"],
+  ["About", "/#about"],
+  ["Blog", "/blog"],
+  ["Contact", "/#contact"],
 ] as const;
 
 export function Nav() {
@@ -23,12 +24,13 @@ export function Nav() {
     >
       <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Wordmark */}
-        <span
-          className="font-display text-xl tracking-wide"
+        <a
+          href="/"
+          className="font-display text-xl tracking-wide transition-opacity hover:opacity-70"
           style={{ color: "var(--foreground)", fontWeight: 400 }}
         >
           Yirong Ding
-        </span>
+        </a>
 
         {/* Desktop links */}
         <div className="hidden sm:flex items-center gap-8">
