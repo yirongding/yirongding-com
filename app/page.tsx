@@ -264,13 +264,13 @@ const services = [
     name: "Foundation Setup",
     forWho: "For businesses building from the ground up or starting fresh",
     description:
-      "Set up the essentials properly from the beginning — brand direction, website structure, CRM, lead capture, email setup, and the core systems that support a more organized business.",
+      "Set up the essentials properly from the beginning — brand direction, content systems, website structure, lead capture, email setup, and the core pieces that support a more organized business.",
   },
   {
     name: "Workflow Design",
     forWho: "For businesses with messy processes or operational friction",
     description:
-      "Improve the way work moves behind the scenes — from lead handling and CRM organization to tool connections, admin workflows, and practical AI support that reduces manual work.",
+      "Improve the way work moves behind the scenes — from lead handling and CRM organization to content production, tool connections, admin workflows, and practical AI support that reduces manual work.",
   },
   {
     name: "Ongoing Support",
@@ -454,9 +454,9 @@ const caseStudies = [
       "Built a workflow to capture inquiries, organize key details, and support faster follow-up so fewer leads go cold.",
   },
   {
-    title: "Inbox Overload",
+    title: "Social Content System",
     description:
-      "Created a system to sort incoming messages, flag priorities, and make next steps easier to manage.",
+      "Designed a content foundation — brand voice, pillars, and a posting rhythm — so a small business’s social runs on schedule without pulling time from the day-to-day.",
   },
   {
     title: "Scattered Operations",
